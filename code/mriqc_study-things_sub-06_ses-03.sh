@@ -4,7 +4,7 @@
 #SBATCH --output=./code/mriqc_study-things_sub-06_ses-03.out
 #SBATCH --error=./code/mriqc_study-things_sub-06_ses-03.err
 #SBATCH --time=2:00:00
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=4G
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
@@ -25,11 +25,8 @@ git submodule foreach --recursive git annex dead here
 git submodule foreach git annex enableremote ria-beluga-storage
 git checkout -b $SLURM_JOB_NAME
 
-datalad containers-run -m 'mriqc_sub-06/ses-03' -n bids-mriqc --input sourcedata/things/sub-06/ses-03/fmap/ --input sourcedata/things/sub-06/ses-03/func/ --output . -- -w workdir/ --participant-label 06 --session-id 03 --omp-nthreads 8 --nprocs 8 -m bold --mem_gb 32 --no-datalad-get  --no-sub --no-datalad-get sourcedata/things ./ participant 
+datalad containers-run -m 'mriqc_sub-06/ses-03' -n bids-mriqc --input sourcedata/things/sub-06/ses-03/fmap/ --input sourcedata/things/sub-06/ses-03/func/ --output . -- -w /tmp --participant-label 06 --session-id 03 --omp-nthreads 8 --nprocs 4 -m bold --mem_gb 16 --no-datalad-get  --no-sub sourcedata/things ./ participant 
 mriqc_exitcode=$?
 
 flock --verbose /lustre03/project/rrg-pbellec/ria-beluga/alias/cneuromod.things.mriqc/.datalad_lock datalad push -d ./ --to origin
-if [ -d sourcedata/freesurfer ] ; then
-    flock --verbose /lustre03/project/rrg-pbellec/ria-beluga/alias/cneuromod.things.mriqc/.datalad_lock datalad push -J 4 -d sourcedata/freesurfer $LOCAL_DATASET --to origin
-fi 
 exit $mriqc_exitcode 
