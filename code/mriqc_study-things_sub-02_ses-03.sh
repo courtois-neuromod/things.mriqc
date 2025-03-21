@@ -25,7 +25,7 @@ git submodule foreach --recursive git annex dead here
 git submodule foreach git annex enableremote ria-beluga-storage
 git checkout -b $SLURM_JOB_NAME
 
-datalad containers-run -m 'mriqc_sub-02/ses-03' -n bids-mriqc --input sourcedata/things/sub-02/ses-03/fmap/ --input sourcedata/things/sub-02/ses-03/func/ --output . -- -w /tmp --participant-label 02 --session-id 03 --omp-nthreads 8 --nprocs 4 -m bold --mem_gb 16 --no-datalad-get  --no-sub sourcedata/things ./ participant 
+datalad containers-run -m 'mriqc_sub-02/ses-03' -n bids-mriqc --input sourcedata/things/sub-02/ses-03/fmap/ --input sourcedata/things/sub-02/ses-03/func/ --output . -- -w /tmp --participant-label 02 --session-id 03 --omp-nthreads 4 --nprocs 4 -m bold --mem_gb 16 --no-datalad-get  --no-sub sourcedata/things ./ participant 
 mriqc_exitcode=$?
 
 flock --verbose /lustre03/project/rrg-pbellec/ria-beluga/alias/cneuromod.things.mriqc/.datalad_lock datalad push -d ./ --to origin
