@@ -1,0 +1,85 @@
+[environment]
+cache_path = "PosixPath('/home/mriqc/.cache/mriqc')"
+cpu_count = 40
+exec_env = "singularity"
+free_mem = 122.2
+freesurfer_home = "/opt/freesurfer"
+overcommit_policy = "heuristic"
+overcommit_limit = "50%"
+nipype_version = "1.8.6"
+synthstrip_path = "PosixPath('/opt/freesurfer/models/synthstrip.1.pt')"
+templateflow_version = "24.2.0"
+total_memory = 187.52930450439453
+version = "24.1.0.dev0+gd5b13cb5.d20240826"
+
+[execution]
+ants_float = false
+bids_dir = "/localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job/sourcedata/things"
+bids_dir_datalad = false
+bids_database_dir = "/tmp/.bids_db-20250325-002728_942491b0-830b-4328-a901-3db13e74f025"
+bids_database_wipe = false
+cwd = "/localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job"
+datalad_get = false
+debug = false
+dry_run = false
+dsname = "<unset>"
+float32 = true
+layout = "BIDS Layout: /localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job/sourcedata/things"
+log_dir = "/localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job/logs"
+log_level = 25
+modalities = [ "bold",]
+no_sub = true
+notrack = false
+output_dir = "/localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job"
+participant_label = [ "01",]
+pdb = false
+reports_only = false
+resource_monitor = false
+run_uuid = "20250325-002728_942491b0-830b-4328-a901-3db13e74f025"
+session_id = [ "31",]
+templateflow_home = "/templateflow"
+upload_strict = false
+verbose_reports = false
+webapi_url = "https://mriqc.nimh.nih.gov:443/api/v1"
+work_dir = "/tmp"
+write_graph = false
+
+[workflow]
+analysis_level = [ "participant",]
+deoblique = false
+despike = false
+fd_thres = 0.2
+fd_radius = 50
+fft_spikes_detector = false
+inputs_path = "PosixPath('/tmp/inputs-20250325-002728_942491b0-830b-4328-a901-3db13e74f025.pkl')"
+min_len_dwi = 7
+min_len_bold = 5
+species = "human"
+template_id = "MNI152NLin2009cAsym"
+
+[nipype]
+crashfile_format = "txt"
+get_linked_libs = false
+local_hash_check = true
+memory_gb = 16
+nprocs = 4
+omp_nthreads = 4
+plugin = "MultiProc"
+remove_node_directories = false
+resource_monitor = false
+stop_on_first_crash = true
+
+[settings]
+file_path = "/localscratch/bpinsard.54770544.0/mriqc_studythings_sub01_ses31.job/logs/config-20250325-002728_942491b0-830b-4328-a901-3db13e74f025.toml"
+start_time = 1742862448.6741638
+
+[execution.bids_filters]
+
+[workflow.biggest_file_gb]
+bold = 0.18923109769821167
+
+[nipype.plugin_args]
+maxtasksperchild = 1
+raise_insufficient = false
+n_procs = 4
+memory_gb = 16.0
